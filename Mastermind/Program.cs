@@ -1,4 +1,5 @@
 ﻿using System;
+using Mastermind;
 
 namespace Mastermind
 {
@@ -7,6 +8,8 @@ namespace Mastermind
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            GameRound round = new GameRound();
         }
     }
 }
