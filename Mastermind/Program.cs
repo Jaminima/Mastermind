@@ -9,10 +9,7 @@ namespace Mastermind
         {
             Console.WriteLine("Hello World!");
 
-            GameRound round = new GameRound();
-            round.RandomSolution();
-            round.GetNewAttempt();
-            round.GetArmIndicators();
+            GameManager.Play();
         }
     }
 }

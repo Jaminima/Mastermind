@@ -20,7 +20,7 @@ namespace Mastermind
 
         private static Random rnd = new Random(DateTime.Now.Millisecond);
 
-        private int attempt_count = 0;
+        public int attempt_count = 0;
 
         public void RandomSolution()
         {
@@ -28,6 +28,11 @@ namespace Mastermind
             {
                 solution[i] = (Peg)rnd.Next(0, 8);
             }
+        }
+
+        public bool AnotherAttempt()
+        {
+            return attempt_count < 9 && !AttemptMatches();
         }
 
         public bool AttemptMatches()
