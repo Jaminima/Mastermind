@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mastermind
 {
     public static class GameManager
     {
+        #region Fields
+
         private static List<GameRound> gameRounds = new List<GameRound>();
 
         private static Player[] players = new Player[2] { new Player("Player 0"), new Player("Player 1") };
         private static int playerSwitch = 0;
+
+        #endregion Fields
+
+        #region Methods
 
         private static void GetPlayerNames()
         {
@@ -30,7 +33,7 @@ namespace Mastermind
             GameRound activeRound;
             while (true)
             {
-                activeRound = new GameRound(); 
+                activeRound = new GameRound();
                 gameRounds.Add(activeRound);
 
                 Console.WriteLine($"{players[(playerSwitch + 1) % 2].Nickname} Input A Target Peg Combination: ");
@@ -39,7 +42,7 @@ namespace Mastermind
                 Console.Clear();
                 Console.WriteLine($"{players[playerSwitch].Nickname} Input Your {GameRound.PegWidth} Peg Combination Attempts: ");
 
-                while (activeRound.attempt_count<9)
+                while (activeRound.attempt_count < 9)
                 {
                     Console.Write($"{activeRound.attempt_count}/9: ");
                     activeRound.GetNewAttempt();
@@ -58,5 +61,7 @@ namespace Mastermind
                 playerSwitch = (playerSwitch + 1) % 2;
             }
         }
+
+        #endregion Methods
     }
 }

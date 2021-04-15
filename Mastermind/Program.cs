@@ -1,15 +1,16 @@
 ﻿using System;
-using Mastermind;
 
 namespace Mastermind
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+        #region Methods
 
+        private static void Main(string[] args)
+        {
             GameManager.Play();
         }
+
+        #endregion Methods
     }
 }

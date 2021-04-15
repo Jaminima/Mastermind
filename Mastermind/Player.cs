@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mastermind
+﻿namespace Mastermind
 {
     public class Player
     {
+        #region Fields
+
         public string Nickname;
         public uint Score = 0;
+
+        #endregion Fields
+
+        #region Constructors
 
         public Player(string _nick)
         {
             Nickname = _nick;
         }
+
+        #endregion Constructors
     }
 }

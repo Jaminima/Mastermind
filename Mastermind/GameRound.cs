@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mastermind
 {
@@ -13,28 +10,23 @@ namespace Mastermind
 
     public class GameRound
     {
-        public static int PegWidth = 4;
-
-        private Peg[,] attempts = new Peg[9, PegWidth];
-        private Peg[] solution = new Peg[PegWidth];
+        #region Fields
 
         private static Random rnd = new Random(DateTime.Now.Millisecond);
-
+        private Peg[,] attempts = new Peg[9, PegWidth];
+        private Peg[] solution = new Peg[PegWidth];
+        public static int PegWidth = 4;
         public uint attempt_count = 0;
 
-        public void RandomSolution()
-        {
-            for (int i = 0; i < PegWidth; i++)
-            {
-                solution[i] = (Peg)rnd.Next(0, 8);
-            }
-        }
+        #endregion Fields
+
+        #region Methods
 
         public bool AttemptMatches()
         {
             for (int i = 0; i < PegWidth; i++)
             {
-                if (attempts[attempt_count,i] != solution[i]) return false;
+                if (attempts[attempt_count, i] != solution[i]) return false;
             }
             return true;
         }
@@ -52,21 +44,21 @@ namespace Mastermind
             return Arms;
         }
 
+        public void GetNewAttempt()
+        {
+            Peg[] Pegs = GetPegInput();
+
+            if (Pegs != null)
+            {
+                for (int i = 0; i < PegWidth; i++) attempts[attempt_count, i] = Pegs[i];
+            }
+        }
+
         public void GetNewSolution()
         {
             Peg[] Pegs = GetPegInput();
 
             solution = Pegs;
-        }
-
-        public void GetNewAttempt()
-        {
-            Peg[] Pegs = GetPegInput();
-
-            if (Pegs!=null)
-            {
-                for (int i = 0; i < PegWidth; i++) attempts[attempt_count, i] = Pegs[i];
-            }
         }
 
         public Peg[] GetPegInput()
@@ -100,5 +92,15 @@ namespace Mastermind
 
             return pegs;
         }
+
+        public void RandomSolution()
+        {
+            for (int i = 0; i < PegWidth; i++)
+            {
+                solution[i] = (Peg)rnd.Next(0, 8);
+            }
+        }
+
+        #endregion Methods
     }
 }
