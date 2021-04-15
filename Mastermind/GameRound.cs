@@ -5,7 +5,7 @@ namespace Mastermind
 {
     public enum Peg
     {
-        Red, Green, Blue, White, Black, Pink, Gray, Yellow
+        Red, Lime, Blue, White, DeepSkyBlue, Pink, Gray, Yellow
     }
 
     public class GameRound
@@ -13,7 +13,7 @@ namespace Mastermind
         #region Fields
 
         private static Random rnd = new Random(DateTime.Now.Millisecond);
-        private Peg[,] attempts = new Peg[9, PegWidth];
+        public Peg[,] attempts = new Peg[9, PegWidth];
         private Peg[] solution = new Peg[PegWidth];
         public static int PegWidth = 4;
         public uint attempt_count = 0;

@@ -1,12 +1,28 @@
 ﻿@page
 @model IndexModel
 @{
+    GameRound currentRound = new GameRound();
+
+    currentRound.GetNewAttempt();
+    currentRound.attempt_count++;
+    currentRound.GetNewAttempt();
+    currentRound.attempt_count++;
+
     ViewData["Title"] = "Home page";
     ViewData["Desc"] = "Index Page";
 
     object GetPeg(Peg p)
     {
-        <td style="background-color:@p.ToString()">@p</td>
+        <td style="background-color:@p.ToString()">__</td>
+        return null;
+    }
+
+    object GetRow(uint row)
+    {
+        for (uint i = 0; i < GameRound.PegWidth; i++)
+        {
+            GetPeg(currentRound.attempts[row, i]);
+        }
         return null;
     }
 }
@@ -23,12 +39,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    @GetPeg((Peg)0)
-                    @GetPeg((Peg)1)
-                    @GetPeg((Peg)2)
-                    @GetPeg((Peg)3)
-                </tr>
+                @{
+                    for (uint i = 0; i < currentRound.attempt_count; i++)
+                    {
+                        <tr>
+                            @GetRow(i)
+                        </tr>
+                    }
+                }
             </tbody>
         </table>
     </div>
