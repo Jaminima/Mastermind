@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mastermind", "Mastermind\Mastermind.csproj", "{114372C1-3177-4D6B-9EFC-34DAD287FEE2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-App", "Better-ASP-Web-App-Template\Web-App.csproj", "{6D1452F5-2942-4300-8149-A467C011A2FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web-App", "Web-App\Web-App.csproj", "{993C7BC5-D3C6-4108-A88F-AE544FCD23D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{114372C1-3177-4D6B-9EFC-34DAD287FEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{114372C1-3177-4D6B-9EFC-34DAD287FEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{114372C1-3177-4D6B-9EFC-34DAD287FEE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D1452F5-2942-4300-8149-A467C011A2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D1452F5-2942-4300-8149-A467C011A2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D1452F5-2942-4300-8149-A467C011A2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D1452F5-2942-4300-8149-A467C011A2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993C7BC5-D3C6-4108-A88F-AE544FCD23D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993C7BC5-D3C6-4108-A88F-AE544FCD23D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993C7BC5-D3C6-4108-A88F-AE544FCD23D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993C7BC5-D3C6-4108-A88F-AE544FCD23D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

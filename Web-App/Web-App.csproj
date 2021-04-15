@@ -5,4 +5,8 @@
     <RootNamespace>Web_App</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mastermind\Mastermind.csproj" />
+  </ItemGroup>
+
 </Project>
