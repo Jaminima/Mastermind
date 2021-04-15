@@ -7,13 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web_App
+namespace Better_Razor_Server_Template
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Start");
             CreateHostBuilder(args).Build().Run();
         }
 

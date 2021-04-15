@@ -1,5 +1,5 @@
-﻿@page
-@model IndexModel
+﻿@page "/"
+
 @{
     GameRound currentRound = new GameRound();
 
@@ -7,9 +7,6 @@
     currentRound.attempt_count++;
     currentRound.GetNewAttempt();
     currentRound.attempt_count++;
-
-    ViewData["Title"] = "Home page";
-    ViewData["Desc"] = "Index Page";
 
     object GetPeg(Peg p)
     {
