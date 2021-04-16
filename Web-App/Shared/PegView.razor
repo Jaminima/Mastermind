@@ -1,0 +1,54 @@
+﻿@inject ProtectedLocalStorage ProtectedLocalStore
+@inject GameRound currentRound
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+@code {
+    MarkupString _tableHTML;
+
+    void DrawTable()
+    {
+        string html = "";
+        for (uint i = 0; i < currentRound.attempt_count; i++)
+        {
+            html += $"<tr>{GetRow(i)}</tr>";
+        }
+
+        _tableHTML = new MarkupString(html);
+    }
+
+    string GetRow(uint row)
+    {
+        string rstr = "";
+        for (uint i = 0; i < GameRound.PegWidth; i++)
+        {
+            rstr += GetPeg(currentRound.attempts[row, i]);
+        }
+        return rstr;
+    }
+
+    string GetPeg(Peg p)
+    {
+        return $"<td style=\"background-color:{p.ToString()}\">__</td>";
+    }
+
+    public void ForceDraw(GameRound _currentRound)
+    {
+        currentRound = _currentRound;
+        DrawTable();
+        StateHasChanged();
+    }
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Peg 1</th>
+            <th scope="col">Peg 2</th>
+            <th scope="col">Peg 3</th>
+            <th scope="col">Peg 4</th>
+        </tr>
+    </thead>
+    <tbody>
+        @_tableHTML
+    </tbody>
+</table>

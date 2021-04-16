@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mastermind;
 
 namespace Better_Razor_Server_Template
 {
@@ -27,6 +28,7 @@ namespace Better_Razor_Server_Template
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddScoped<GameRound>();
             //services.AddSingleton<WeatherForecastService>();
         }
 
