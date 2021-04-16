@@ -2,6 +2,7 @@
 @inject ProtectedLocalStorage ProtectedLocalStore
 @inject GameRound currentRound
 @using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@using Newtonsoft.Json
 
 @code{
     PegView pegView;
@@ -10,7 +11,7 @@
     {
         if (firstRender)
         {
-            var store = await ProtectedLocalStore.GetAsync<GameRound>("round");
+            var store = await ProtectedLocalStore.GetAsync<String>("round");
 
             if (store.Value == null)
             {
@@ -21,11 +22,11 @@
                 currentRound.GetNewAttempt();
                 currentRound.attempt_count++;
 
-                await ProtectedLocalStore.SetAsync("round", currentRound);
+                await ProtectedLocalStore.SetAsync("round",JsonConvert.SerializeObject(currentRound));
             }
             else
             {
-                currentRound = store.Value;
+                currentRound = JsonConvert.DeserializeObject<GameRound>(store.Value);
             }
 
             pegView.ForceDraw(currentRound);
