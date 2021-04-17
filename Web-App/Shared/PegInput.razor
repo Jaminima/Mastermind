@@ -1,0 +1,44 @@
+﻿@inject ProtectedLocalStorage ProtectedLocalStore
+@inject GameRound currentRound
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+
+
+@code {
+    MarkupString _tableHTML;
+
+    public int activePeg = -1;
+
+    public InteractablePeg[] pegs = new InteractablePeg[GameRound.PegWidth];
+
+    public void ChangeActivePeg(int newPeg)
+    {
+        if (activePeg != -1) pegs[activePeg].ResetPeg();
+        activePeg = newPeg;
+    }
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            @{
+                for (int i = 0; i < GameRound.PegWidth; i++)
+                {
+                    <th scope="col">Peg @i</th>
+                }
+            }
+        </tr>
+    </thead>
+    <br/>
+    <tbody>
+        <tr>
+            @{ 
+                for (int i = 0; true; i++)
+                {
+                    <InteractablePeg @ref=@pegs i=@i input=@(this) p=@((Peg)(i % 8))></InteractablePeg>
+
+                    if (i == GameRound.PegWidth - 1) break;
+                }
+            }
+        </tr>
+    </tbody>
+</table>

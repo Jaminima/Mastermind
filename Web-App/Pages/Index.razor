@@ -6,6 +6,7 @@
 
 @code{
     PegView pegView;
+    PegInput pegInput;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -42,5 +43,6 @@
     </div>
     <div class="col-sm-6">
         <p>You are on attempt: @currentRound.attempt_count</p>
+        <PegInput @ref="pegInput"></PegInput>
     </div>
 </div>
